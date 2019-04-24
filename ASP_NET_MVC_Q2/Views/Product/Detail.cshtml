@@ -1,0 +1,36 @@
+﻿@model  ASP_NET_MVC_Q2.Models.All
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div>
+        <table border="1">
+            <span id="spanA">
+                <tr>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Product Name</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Locale</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Price</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Promote Price</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Create Date</td>
+                </tr>
+
+                @if (Model != null)
+                {
+
+                    <tr>
+                        <td align="center" valign="center">@Html.DisplayFor(model => model.Product_Name)</td>
+                        <td align="center" valign="center"> @Html.DisplayFor(model => model.Locale)</td>
+                        <td align="center" valign="center"> @Html.DisplayFor(model => model.Price)</td>
+                        <td align="center" valign="center"> @Html.DisplayFor(model => model.Promote_Price)</td>
+                        <td align="center" valign="center"> @Html.DisplayFor(model => model.Create_Date)</td>
+                    </tr>
+
+                }
+
+            </span>
+        </table>
+    </div>
+</body>
+</html>

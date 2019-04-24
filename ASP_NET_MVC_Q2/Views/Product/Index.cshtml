@@ -1,0 +1,37 @@
+﻿@using PagedList.Mvc;
+@using PagedList;
+@model  IEnumerable<ASP_NET_MVC_Q2.Models.All>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+
+    <div>
+        <table border="1">
+            <span id="spanA">
+                <tr>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">ID</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Product Name</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Locale</td>
+                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Create Date</td>
+                </tr>
+
+                @if (Model != null)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Id)</td>
+                            <td align="center" valign="center"> @Html.ActionLink(item.Product_Name, "Detail", new { id = item.Id, locale = item.Locale, price = item.Price, promote_price = item.Promote_Price, product_name = item.Product_Name, create_date = item.Create_Date })</td>
+                            <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Locale)</td>
+                            <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Create_Date)</td>
+                        </tr>
+                    }
+                }
+            </span>
+        </table>
+        @Html.PagedListPager((IPagedList)Model, x => Url.Action("Index", new { page = x }))
+    </div>
+</body>
+</html>
