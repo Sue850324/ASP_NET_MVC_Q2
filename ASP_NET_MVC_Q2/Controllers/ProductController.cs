@@ -17,8 +17,8 @@ namespace ASP_NET_MVC_Q2.Controllers
     {
         public ActionResult Index(int page = 1, int pageSize = 5)
         {
-            string filepath = Server.MapPath("~/App_Data/data.json");
-            string json = System.IO.File.ReadAllText(filepath);
+            string filePath = Server.MapPath("~/App_Data/data.json");
+            string json = System.IO.File.ReadAllText(filePath);
             List<All> list = JsonConvert.DeserializeObject<List<All>>(json);
 
             var result = list.OrderBy(x => x.Id).ToPagedList(page, pageSize);
@@ -34,28 +34,28 @@ namespace ASP_NET_MVC_Q2.Controllers
             }
             else
             {
-                bool resultPrice = decimal.TryParse(all.Price, out decimal typetest);
+                bool resultPrice = decimal.TryParse(all.Price, out decimal typeTest);
                 if (resultPrice == true)
                 {
                     switch (all.Locale)
                     {
                         case "US":
-                            all.Price = string.Format(new CultureInfo("en-US"), "{0:C}", typetest);
+                            all.Price = string.Format(new CultureInfo("en-US"), "{0:C}", typeTest);
                             break;
                         case "CA":
-                            all.Price = string.Format(new CultureInfo("en-CA"), "{0:C}", typetest);
+                            all.Price = string.Format(new CultureInfo("en-CA"), "{0:C}", typeTest);
                             break;
                         case "DE":
-                            all.Price = string.Format(new CultureInfo("de-DE"), "{0:C}", typetest);
+                            all.Price = string.Format(new CultureInfo("de-DE"), "{0:C}", typeTest);
                             break;
                         case "ES":
-                            all.Price = string.Format(new CultureInfo("es-ES"), "{0:C}", typetest);
+                            all.Price = string.Format(new CultureInfo("es-ES"), "{0:C}", typeTest);
                             break;
                         case "FR":
-                            all.Price = string.Format(new CultureInfo("fr-FR"), "{0:C}", typetest);
+                            all.Price = string.Format(new CultureInfo("fr-FR"), "{0:C}", typeTest);
                             break;
                         case "JP":
-                            all.Price = string.Format(new CultureInfo("ja-JP"), "{0:C}", typetest);
+                            all.Price = string.Format(new CultureInfo("ja-JP"), "{0:C}", typeTest);
                             break;
                     }
                 }
@@ -64,28 +64,28 @@ namespace ASP_NET_MVC_Q2.Controllers
             {
                 all.Promote_Price = "-";
             }
-            bool resultPromote = decimal.TryParse(all.Promote_Price, out decimal typechange);
+            bool resultPromote = decimal.TryParse(all.Promote_Price, out decimal typeChange);
             if (resultPromote == true)
             {
                 switch (all.Locale)
                 {
                     case "US":
-                        all.Promote_Price = string.Format(new CultureInfo("en-US"), "{0:C}", typechange);
+                        all.Promote_Price = string.Format(new CultureInfo("en-US"), "{0:C}", typeChange);
                         break;
                     case "CA":
-                        all.Promote_Price = string.Format(new CultureInfo("en-CA"), "{0:C}", typechange);
+                        all.Promote_Price = string.Format(new CultureInfo("en-CA"), "{0:C}", typeChange);
                         break;
                     case "DE":
-                        all.Promote_Price = string.Format(new CultureInfo("de-DE"), "{0:C}", typechange);
+                        all.Promote_Price = string.Format(new CultureInfo("de-DE"), "{0:C}", typeChange);
                         break;
                     case "ES":
-                        all.Promote_Price = string.Format(new CultureInfo("es-ES"), "{0:C}", typechange);
+                        all.Promote_Price = string.Format(new CultureInfo("es-ES"), "{0:C}", typeChange);
                         break;
                     case "FR":
-                        all.Promote_Price = string.Format(new CultureInfo("fr-FR"), "{0:C}", typechange);
+                        all.Promote_Price = string.Format(new CultureInfo("fr-FR"), "{0:C}", typeChange);
                         break;
                     case "JP":
-                        all.Promote_Price = string.Format(new CultureInfo("ja-JP"), "{0:C}", typechange);
+                        all.Promote_Price = string.Format(new CultureInfo("ja-JP"), "{0:C}", typeChange);
                         break;
                 }
             }
