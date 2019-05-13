@@ -23,7 +23,7 @@
                     {
                         <tr>
                             <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Id)</td>
-                            <td align="center" valign="center"> @Html.ActionLink(item.Product_Name, "Detail", new { id = item.Id, locale = item.Locale, price = item.Price, promote_price = item.Promote_Price, product_name = item.Product_Name, create_date = item.Create_Date })</td>
+                            <td align="center" valign="center"> @Html.ActionLink(item.Product_Name, "Detail", new { id = item.Id})</td>
                             <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Locale)</td>
                             <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Create_Date)</td>
                         </tr>
