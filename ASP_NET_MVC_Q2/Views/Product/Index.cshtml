@@ -3,25 +3,25 @@
 @model  IEnumerable<ASP_NET_MVC_Q2.Models.All>
 <html>
 <head>
+    <link href="~/Content/table.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
 </head>
 <body>
 
     <div>
-        <table border="1">
-            <span id="spanA">
-                <tr>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">ID</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Product Name</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Locale</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Create Date</td>
+        <table class="fancytable">
+                <tr class="headerrow">
+                    <td  align="center" valign="center">ID</td>
+                    <td  align="center" valign="center">Product Name</td>
+                    <td  align="center" valign="center">Locale</td>
+                    <td  align="center" valign="center">Create Date</td>
                 </tr>
 
                 @if (Model != null)
                 {
                     foreach (var item in Model)
                     {
-                        <tr>
+                        <tr class="datarowodd">
                             <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Id)</td>
                             <td align="center" valign="center"> @Html.ActionLink(item.Product_Name, "Detail", new { id = item.Id})</td>
                             <td align="center" valign="center"> @Html.DisplayFor(modelItem => item.Locale)</td>
@@ -29,7 +29,6 @@
                         </tr>
                     }
                 }
-            </span>
         </table>
         @Html.PagedListPager((IPagedList)Model, x => Url.Action("Index", new { page = x }))
     </div>

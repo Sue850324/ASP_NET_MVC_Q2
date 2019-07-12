@@ -3,23 +3,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/table.css" rel="stylesheet" />
 </head>
 <body>
     <div>
-        <table border="1">
-            <span id="spanA">
-                <tr>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Product Name</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Locale</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Price</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Promote Price</td>
-                    <td style="border:5px #FFD382 groove;" align="center" valign="center">Create Date</td>
+        <table class="fancytable">       
+                <tr class="headerrow">
+                    <td  align="center" valign="center">Product Name</td>
+                    <td  align="center" valign="center">Locale</td>
+                    <td  align="center" valign="center">Price</td>
+                    <td  align="center" valign="center">Promote Price</td>
+                    <td  align="center" valign="center">Create Date</td>
                 </tr>
 
                 @if (Model != null)
                 {
 
-                    <tr>
+                    <tr class="datarowodd">
                         <td align="center" valign="center">@Html.DisplayFor(model => model.Product_Name)</td>
                         <td align="center" valign="center"> @Html.DisplayFor(model => model.Locale)</td>
                         <td align="center" valign="center"> @Html.DisplayFor(model => model.Price)</td>
@@ -28,8 +28,6 @@
                     </tr>
 
                 }
-
-            </span>
         </table>
     </div>
 </body>
